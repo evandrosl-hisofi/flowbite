@@ -10,8 +10,6 @@ const getDatepickerOptions = (datepickerEl) => {
     const title = datepickerEl.hasAttribute('datepicker-title');
     const language =  datepickerEl.getAttribute('datepicker-language')
     const daysOfWeekDisabled = datepickerEl.getAttribute('datepicker-days-of-week-disabled')
-    const minDate = datepickerEl.getAttribute('datepicker-min-date')
-    const maxDate = datepickerEl.getAttribute('datepicker-max-date')
 
     const options = {};
     if (buttons) {
@@ -34,6 +32,13 @@ const getDatepickerOptions = (datepickerEl) => {
     }
     if (language) {
         options.language = datepickerEl.getAttribute('datepicker-language');
+    }
+    if (daysOfWeekDisabled) {
+        options.daysOfWeekDisabled =  Array.from(datepickerEl.getAttribute('datepicker-days-of-week-disabled')).filter(function(elemento) {
+            return !isNaN(parseInt(elemento));
+          }).map(function(elemento) {
+            return parseInt(elemento);
+          });
     }
 
     return options;
