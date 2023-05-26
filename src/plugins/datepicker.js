@@ -8,6 +8,10 @@ const getDatepickerOptions = (datepickerEl) => {
     const format = datepickerEl.hasAttribute('datepicker-format');
     const orientation = datepickerEl.hasAttribute('datepicker-orientation');
     const title = datepickerEl.hasAttribute('datepicker-title');
+    const language =  datepickerEl.getAttribute('datepicker-language')
+    const daysOfWeekDisabled = datepickerEl.getAttribute('datepicker-days-of-week-disabled')
+    const minDate = datepickerEl.getAttribute('datepicker-min-date')
+    const maxDate = datepickerEl.getAttribute('datepicker-max-date')
 
     const options = {};
     if (buttons) {
@@ -27,6 +31,9 @@ const getDatepickerOptions = (datepickerEl) => {
     }
     if (title) {
         options.title = datepickerEl.getAttribute('datepicker-title');
+    }
+    if (language) {
+        options.language = datepickerEl.getAttribute('datepicker-language');
     }
 
     return options;
