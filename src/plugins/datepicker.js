@@ -65,5 +65,5 @@ export function initDatepickers() {
         });
 }
 
-const events = new Events('DOMContentLoaded', [initDatepickers]);
-events.init();
+// const events = new Events('DOMContentLoaded', [initDatepickers]);
+//events.init();
